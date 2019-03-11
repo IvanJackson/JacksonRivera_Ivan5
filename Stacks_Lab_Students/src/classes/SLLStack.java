@@ -2,8 +2,8 @@ package classes;
 
 import interfaces.Stack;
 
-public class SLLStack<E> implements Stack<E>
-{   
+public class SLLStack<E> implements Stack<E> {
+	
 	// SNode is a public class defined elsewhere. No 
 	// need to have it as a private class in this case. 
 	private SNode<E> top;   
@@ -15,19 +15,18 @@ public class SLLStack<E> implements Stack<E>
 	}
 	
 	public E pop() {
-		if (isEmpty())
-			return null; 
-		
-		// ADD CODE TO COMPLETE IMPLEMENTATION
-		
+		if (isEmpty()) return null; 
+		E etr =  top.getElement();
+		SNode<E> ntr = top;
+		top = top.getNext();
 		ntr.clean(); 
-		
+		size--;
 		return etr;
 	}
 
 	public void push(E e) {
-		// ADD CODE TO COMPLETE IMPLEMENTATION
-		
+		top=new SNode<E>(e, top);
+		size++;
 	}
 
 	public E top() {
